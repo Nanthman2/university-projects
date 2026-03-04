@@ -1,0 +1,486 @@
+---
+title: "Projet LSTAT2110 -- Analyse de données"
+author: "DEVAUX Nathan & PIRON Louis-David | 4085-21-00 4933-21-00 | DATS2M"
+output:
+  pdf_document: default
+  html_document: default
+---
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE)
+```
+
+```{r,echo=FALSE,results='hide'}
+projet_1 <- read.csv("C:/Users/natbo/OneDrive/Master 1/LSTAT2110 Analyse donné/Projet/projet_1.csv", sep=";",dec=".",row.names = 1)
+
+suppressWarnings({
+  suppressPackageStartupMessages({
+    library(rgl)
+    library(plotly)
+    library(gridExtra)
+    library(ggplot2)
+    library(factoextra)
+    library(FactoMineR)
+    library(cowplot)
+  })
+})
+```
+
+# Introduction.
+
+Au travers de ce projet, nous analyserons un ensemble de données contenant des informations variées sur des aspects liés à la **santé**, au **sommeil** et au **mode de vie** de 374 individus. Au terme de l'analyse, l'objectif sera d'expliquer les liens potentiels entre ces variables et d'avoir une meilleure compréhension des facteurs ayant une influence sur la qualité du sommeil.  
+
+# Présentation des données, analyse descriptive.
+
+## Description du jeu de données.
+
+Notre jeu de données \footnote{Venant de Kaggle: https://www.kaggle.com/datasets/uom190346a/sleep-health-and-lifestyle-dataset} compte 374 individus et 13 variables (dont 4 catégorielles). Pour chaque individu, les variables suivantes ont été recensées : `Age` (l'âge, en années), `Sleep.Duration` (la durée de sommeil, en heures/jour),`Quality.of.Sleep` (une autoévaluation subjective de la qualité de son sommeil, de 1 à 10), `Physical.Activity.Level` (l'activité physique journalière, en minutes), `Stress.Level` (une autoévaluation subjective de son niveau de stress, de 1 à 10), `SBP` (la pression sanguine systolique,en millimètres de mercure [mmHg]),`DBP` (la pression sanguine diastolique, en millimètres de mercure [mmHg]), `Heart.Rate` (le rythme cardiaque, en batements par minute [BPM]), `Daily.Steps` (le nombre de pas par jour), `Gender` (indicatrice du genre biologique), `Occupation` (indicatrice du métier), `BMI.Category` (catégorie correspondant à l'indice de masse corporelle), `Sleep.Disorder` (indicatrice d'un trouble du sommeil).
+
+#### Apparte théorique.
+
+La tension est indiquée par la succession de deux nombres : la **pression systolique** et la **pression diastolique**. La pression systolique (`SBP`) est la pression maximale, au moment de la « contraction » du cœur (systole). La pression diastolique (`DBP`) est la pression minimale, au moment du « relâchement » du cœur (diastole).
+
+Ces différentes métriques permettent d'évaluer si une personne souffre d'**hypotension** (`SBP` < 90 et `DBP` < 60) ou d'**hypertension** (`SBP` > 140 ou `DBP` > 90).
+
+\clearpage
+
+
+## Analyse descriptive.
+
+Pour facilier la lecture et avoir une meilleur compréhension de la distribution de chaque **variables quantitatives**, nous commençons par analyser leur distribution :
+
+```{r,fig.align='center',fig.width=8,fig.height=5}
+h <- function(var){
+  hist(projet_1[,var], main = paste("Distribution de '",colnames(projet_1)[var],"'"),xlab="",ylab="Fréquence",cex.main=1, cex.lab=0.9)
+}
+par(mfrow=c(3,3))
+h(1);h(2);h(3);h(4);h(5);h(6);h(7);h(8);h(9)
+```
+Nous remarquons que : 
+
+- La majorité des individus intérrogés sont relativement jeunes (<50 ans).
+- La durée de sommeil moyenne est de 7.13 h/j, les durées de sommeil sont concentrées autour de cette moyenne (min : 5.8 et max : 8.5), mais pas équitablement réparties.
+- La grande majorité des individus estime avoir une bonne qualité de sommeil (autoévaluation $\ge$ 6/10).
+- Les niveaux d'activité physique et de stress sont répartis assez uniformément.
+- Les pression sanguine systolique et le rythme cardiaque tournent en moyenne autour de 128 mmHg et 70 BPM.
+
+Pour plus de détails, les statistiques descriptives des différentes variables quantitatives sont reprises en **Annexe 1**.
+
+
+Regardons maintenant aux fréquences des **variables catégorielles** : 
+
+```{r,fig.align='center', fig.width=15,fig.height=2.7}
+vis_cat <- function(var){
+  data <- table(projet_1[var])
+  barplot(data,main = paste("'",colnames(projet_1)[var],"'"),las = las_val,cex.main = 1.4, cex.names = 1.2,cex.axis = 0.95, space=0)
+}
+par(mfrow = c(1, 4))            
+par(mar = c(11, 2, 2, 1)) 
+las_val<-0
+vis_cat(10); vis_cat(12);vis_cat(13)
+las_val<-2
+vis_cat(11)
+```
+
+Nous remarquons que : 
+
+- Une proportion similaire d'hommes et de femmes ont été interrogés.
+- Peu de personnes obèses a été interrogée.
+- La majorité des personnes interrogées n'ont pas de trouble du sommeil.
+
+Pour finir, visualisons les corrélations entre nos variables en présentant pour chaque variables deux à deux leur corrélation : 
+
+```{r,fig.align='center',fig.height=3,fig.width=3,results='hide'}
+suppressPackageStartupMessages(require(corrplot))
+corrplot(cor(projet_1[1:9]), tl.col = "black",tl.cex=0.4, order = "hclust", addCoef.col = "darkgrey",method='number',diag=FALSE, number.cex=0.5, cl.cex = 0.55, warnings='False')
+```
+
+```{r,results='hide'}
+#pairs(projet_1[1:9],col="lightgray",cex = 0.5)
+round(cor(projet_1[1:9]),2)
+```
+
+Nous remarquons qu'il y a des corrélations entre un bon nombre de variables. Pour n'en citer que 2 : `Heart.Rate` et `Strees.Level` ($\rho =$ .67), `Stress.Level` et `Quality.of.Sleep` ($\rho =$ -.9 ).
+
+# Analyse en composantes principales
+```{r,results='hide'}
+data_acp <- projet_1[1:9] #sélectionner seulement les variables quantitatives
+res <-  PCA(data_acp,graph = FALSE,ncp=9)
+round(res$eig, 1)
+```
+### Choix des composantes principales
+
+Usuellement, on retient les composantes principales dont les **valeurs propres sont supérieures à 1**. Lorsque nous calculons ces dernières, nous remarquons que les valeurs propres $\lambda_1$,$\lambda_2$ et $\lambda_3$ sont supérieurs à 1 (*cf.* **Annexe 2**).
+
+Le premier plan factoriel n'explique que 69% de la variabilité du jeu de données. Cela signifie que nous devrons nous montrer prudents lors de notre analyse conjointe des Cercle des corrélations et de la carte des individus car il se peut que certains individus, et certaines variables, soient mal représentées.
+
+Le fait de regarder aux 3 premières composantes principales résoudrait en partie le problème comme ces dernières expliquent une proportion substantielle de la variabilité totale du jeu de données (87%). 
+
+Toutefois, l'interprétation en 3D étant rendue difficile par l'absence de package pour réaliser des cercles de corrélation en 3D, nous nous en tiendront aux 2 premières composantes principales, en supprimant les variables et individus mal représentés. Pour savoir si malgré tout il vaut la peine d'interpréter les cercle de corrélations et carte des individus pour le premier plan factoriel, nous allons regarder la proportion de variables et d'indivdus correctement représentés.
+
+### Analyse des variables.
+```{r, results='hide'}
+round(res$var$cos2[,1:3],2)
+```
+
+Pour déterminer quelles variables sont mal représentées, nous calculons pour chaque variables la somme des $\cos^2$ pour les $p$ premières composantes principales et les représentons à l'aide d'un barplot :
+
+```{r,fig.align='center',fig.height=3,fig.width=8}
+qualrep_var <- function(p){
+  a <- round(sort(rowSums(res$var$cos2[,1:p])),digits=3)
+  a
+  par(mar = c(6, 3, 3, 2))
+  colors <- ifelse(a < 0.5, "red", "lightgray")
+  barplot(a,main=paste("p = ",p),cex.main=0.8,las=2,cex.names=0.65,col=colors)
+  abline(h=0.5,lty="dashed",col="red")
+}
+par(mfrow=c(1,2))
+qualrep_var(2)
+qualrep_var(3)
+```
+Pour le premier plan factoriel, on remarque que les variables `Daily.Steps` et `Physical.Activity.Level` sont mal représentées. 
+
+Comme ces 2 variables mal représentées pour $p = 2$ sont très peu corrélées ($\rho = -0.04$ et $\rho = 0.2$, respectivement) à notre variable d'intérêt (`Sleep.Duration`), cela ne pose pas problème de les enveler pour la suite de l'analyse.
+
+Notons que pour $p = 3$ composantes principales, toutes les variables sont correctement représentées. 
+
+
+### Analyse des individus.
+
+Pour déterminer les individus qui sont les moins bien représentés, nous représentons également sous forme d'un barplot (pour chaque individu) la somme des $\cos^2$ pour les 2 premières composantes principales :
+```{r,fig.align='center',fig.height=3,fig.width=8}
+par(mar = c(2, 1, 1, 1)) 
+qualrep_ind <- function(p){
+  a <- round(sort(rowSums(res$ind$cos2[,1:p])),digits=3)
+  a
+  n <- sum(a<0.5)
+  colors <- ifelse(a < 0.5, "red", "lightgray")
+  barplot(a,main=paste("p =",p),las=2,cex.names=0.6,cex.main=0.65,cex.axis=0.8,col=colors,xaxt="n")
+  abline(h=0.5,lty="dashed",col="red")
+  mtext(paste(n,"individus sur 374 sont mal représentés"),side = 1, line = 1, cex = 0.65)
+}
+qualrep_ind(2)
+#qualrep_ind(3)
+```
+Nous remarquons que 37% des individus sont mal représentés (139/374). Pour 3 composantes principales, ce ratio tombe à 16% (59/374).
+
+
+### Ajout des variables catégorielles sur la carte des individus.
+
+Ajoutons maintenant sur la cartes des individus dont le $\cos^2$ > 0.5 nos différentes variables catégorielles :
+
+```{r,fig.align='center',fig.height=3,fig.width=6.5}
+par(mar = c(2, 1, 1, 1)) 
+
+ajout_var_categ <- function(var,c=0){
+  data_acp = data.frame(projet_1[1:9],as.factor(projet_1[[var]]))
+  res <- PCA(data_acp, ncp = 3, graph = FALSE, quali.sup = c(10))
+  # Visualiser les individus avec coloration par cos2
+  p <- fviz_pca_ind(res,
+                    gradient.cols = c("lightblue", "darkblue"),
+                    col.ind = "cos2",
+                    label = "",
+                    title = paste("Variable catégorielle","'", colnames(projet_1)[var],"'"), 
+                    select.ind = list(cos2 = c)) +   
+    theme(axis.title = element_text(size = 6),
+          axis.text = element_text(size = 6),
+          text = element_text(size = 6),
+          plot.title = element_text(hjust = 0.5))
+  
+  # Extraire les coordonnées des niveaux de la variable qualitative supplémentaire
+  coords_quali_sup <- as.data.frame(res$quali.sup$coord[, 1:2])  # Coordonnées sur les 2 premières dimensions
+  coords_quali_sup$labels <- rownames(coords_quali_sup)  # Ajouter les noms des niveaux
+  
+  # Ajouter les niveaux de la variable qualitative en tant que points et texte
+   p + geom_point(data = coords_quali_sup, aes(x = Dim.1, y = Dim.2), 
+                 color = "magenta", size = 4, shape = 22) +
+    geom_text(data = coords_quali_sup, aes(x = Dim.1, y = Dim.2, label = labels), 
+              color = "magenta", vjust = -1, size = 2.5)
+}
+
+plot1 <- ajout_var_categ(10,0.5)
+plot2 <- ajout_var_categ(11,0.5)
+plot3 <- ajout_var_categ(12,0.5)
+plot4 <- ajout_var_categ(13,0.5)
+
+grid.arrange(plot1, plot2, plot3, plot4, ncol = 2, nrow = 2)
+```
+
+Notons que chaque carré correspondant à une catégorie ne peux pas être interpreté, en raison d'un trop faible $cos^2$ :
+
+```{r,fig.align='center',fig.height=2,fig.width=3}
+par(mar = c(3.5, 1, 1, 1)) 
+qualrep_var_cat <- function(p){
+  data_acp = projet_1
+  res <- PCA(data_acp,ncp=3,graph = FALSE, quali.sup = c(10,11,12,13))
+  a <- round(sort(rowSums(res$quali.sup$cos2[,1:p])),digits=3)
+  a
+  colors <- ifelse(a < 0.5, "red", "lightgray")
+  barplot(a,main=paste("p = ",p),las=2,cex.names=0.5,cex.main=0.8,cex.axis=0.6,col=colors)
+  abline(h=0.5,lty="dashed",col="red")
+}
+
+qualrep_var_cat(2)
+
+#qualrep_var_cat(3)
+```
+
+Pour $p = 2$, les catégories `Teacher`,`Manager`,`Obese`,`Lawyer` et `Insomnia`, sont mal représentées. Pour $p = 3$, seules les catégories `Manager` et `Teacher` sont mal représentées.
+
+\clearpage
+
+
+### Interprétation.
+
+Maintenant que nous connaissons les variables qui sont correctement représentées, nous pouvons effectuer l'analyse (conjointe) du cercle de corrélation et de la carte des individus :
+
+```{r,fig.align='center',fig.height=4,fig.width=8}
+par(mar = c(2, 1, 1, 1)) 
+
+filtre_var <- function(c){
+  fviz_pca_var(res, 
+               gradient.cols = c("lightblue", "darkblue"),
+               col.var = "cos2", select.var = list(cos2=c),title="") +   
+    theme(axis.title = element_text(size = 10),axis.text = element_text(size = 18),
+          text = element_text(size = 10),plot.title = element_text(hjust = 0.5),legend.position = "none")
+}
+filtre_ind <- function(c){
+fviz_pca_ind(res, 
+             gradient.cols = c("lightblue", "darkblue"),
+             col.ind = "cos2",   
+             label = "", 
+             select.ind = list(cos2=c),title="") +   
+  theme(axis.title = element_text(size = 10),
+        axis.text = element_text(size = 10),
+        text = element_text(size = 10),
+        plot.title = element_text(hjust = 0.5),legend.position = "none")
+}
+plot1 <- filtre_ind(0.5)
+plot2 <- filtre_var(0.5)
+plot_grid(plot2,plot1,ncol=2,align='v')
+```
+
+
+Commençons par le **cercle des corrélations**. Dans ce dernier nous distinguons trois groupes de variables fortement corrélées entre elles : (i) les variables `Heart.Rate` et `Stress.Level`, (ii) le groupe des variables `DBP` et `SBP`, (iii) les variables `Quality.of.Sleep` et `Sleep.Duration`.
+
+Les groupes (i) et (iii) pointant dans des directions quasiment oposées, on comprend que le rythme cardiaque et le niveau de stress sont négativement liés à notre qualité de sommeil et durée de sommeil.
+
+Dans la même logique, comme la variable `Age` pointe dans une direction similaire au groupe de variables (iii), on comprend qu'avec l'âge la qualité de notre sommeil semble s'améliorer. 
+
+Enfin nous remarquons que le groupe de variables (ii) ne semble pas influencer la qualité du sommeil, étant donné que les groupes (ii) et (iii) sont presque orthogonaux.
+
+Pour la **carte des individus**, trois clusters semblent se dessiner : un en haut à gauche, un en haut à droite et un en bas. Le clustering que nous allons rélaiser plus bas nous permettra peut-être de confirmer cette intuition.
+
+Maintenant, passons à l'**analyse conjointe**. Lorsque nous regardons conjointement le cercle des corrélations avec la carte des individus (incluant les variables catégorielles), nous pouvons déduire les constats suivants : 
+
+- Dans la partie supérieure de la carte des individus, nous retrouvons deux clusters. Les individus de ces clusters sont vraisemblablements plus agés et atteints d'hypertension (hautes `DBP` et `SBP`). Le cluster le plus atteint d'hypertension (le plus à gauche) semble dormir moins bien que celui plus à droite. Si nous regardons aux variables catégorielles, nous remarquons que ces individus ont plus de chances d'être atteints d'apnée du sommeil, d'être en surpoids, et d'être infirmiers (ou infirmières). 
+
+-  Si nous nous attardons sur les variables catégorielles, nous remarquons que : les femmes semblent mieux dormir que les hommes ; les commerciaux sont ceux qui dorment le moins bien, les ingénieurs ceux qui dorment le mieux ; les personnes avec un IMC normal et sans trouble du sommeil dorment mieux.
+
+\clearpage
+
+
+# Clustering.
+
+Dans cette section, notre objectif est de déterminer s'il existe des groupes naturels dans notre jeu de données. Pour cela, nous suivrons une procédure de **consolidation**. Dans un premier temps, nous effecturons une classification hiérarchique (avec le critère de Ward), pour déterminer le nombre optimal de classes, noté  $q^*$. Ensuite, sur base de ce nombre $q^*$, nous réaliserons un algorithme k-means.
+
+## Classification Hiérarchique.
+
+D'abbord nous calulons la matrice de dissimilarité initiale $\Delta_{n,ij} = \delta(\{i\}, \{j\}) = \frac{1}{2n} \|x_i - x_j\|^2$. Ce calcul se fait sur les variables standardisées pour éviter qu'une variable à grande échelle ne domine lors des calculs de distances.
+```{r}
+data_clust <- scale(projet_1[1:9])
+init_dissimilarity <- dist(data_clust)^2/(2*nrow(data_clust))
+hclust_ward <- hclust(init_dissimilarity,method = "ward.D")
+```
+
+### Choix du nombre de classes.
+
+Notre choix se porte sur $q = 4$ car c'est entre $q = 3$ et $q = 4$ que nous observons le saut le plus soudain, tout en gardant un nombre de classe intéressant pour l'analyse. 
+
+```{r,fig.align='center',fig.height=3,fig.width=5}
+
+# Extraction des données pour les classes 11 à 1
+
+start_class <- 11
+subset_height <- hclust_ward$height[(length(hclust_ward$height) - start_class + 1):length(hclust_ward$height)]
+subset_names <- seq(start_class, 1, -1)
+
+# Barplot limité aux classes 11 à 1
+barplot(subset_height,xlab = "nombre de classes",ylab = "Niveau d'aggrégation",names.arg =subset_names)
+abline(v=((12-3)+0.7),col="red",lty="dashed")
+#barplot(hclust_ward$height, sub = "nombre de classes",ylab ="Niveau d'aggrégation",names.arg = seq(length(hclust_ward$height),1,-1))
+```
+
+
+### Qualité de représentation des classes. 
+
+Pour quantifier la qualité de représentation de nos classes, nous regardons au ration $\frac{BSS}{TSS} \times 100$. Pour rappel, la $TSS$ peut se décomposer en $TSS=BSS+WSS$. 
+
+Une bonne partition maximise la $BSS$ (puisqu'on souhaite une grande variabilité entre les classes) et minimise la $WSS$ (puisqu'on souhaite une petite variabilité au sein de chaque classe). Cela revient à dire qu'on souhaite un ratio $\frac{BSS}{TSS}$ proche de 1. 
+
+Dans notre cas, la partition en 4 classes explique 61.25% de la variance totale, indiquant une représentation satisfaisante des données.
+
+```{r,results='hide'}
+q = 4
+
+TSS <- sum(hclust_ward$height)
+
+BSS <- sum(tail(hclust_ward$height,n=(q-1)))
+
+
+BSS/TSS*100
+```
+## K-means.
+
+Après avoir identifié 4 classes à l'aide de la classification hiérarchique, nous appliquons un algorithme de K-means afin d'affiner cette partition. L'objectif est d'améliorer le ratio $\frac{BSS}{TSS}$, car bien que l'algorithme de Ward ait permis d'obtenir une classification en 4 classes, rien ne garantit qu'il s'agisse de la meilleure partition possible en 4 classes.
+
+Avec k = 4, nous obtenons un ratio de 62.15%, légèrement supérieur à celui obtenu avec la méthode hiérarchique (61.25%), confirmant un gain d’efficacité dans la séparation des classes.
+
+```{r,results='hide'}
+model <- kmeans(data_clust,centers=4,nstart=10000)
+
+TSS <- model$totss
+BSS <- model$betweenss
+
+BSS/TSS*100
+```
+
+## Visualisation des classes.
+```{r,fig.align='center',fig.height=3,fig.width=5}
+par(mar = c(2, 1, 1, 1)) 
+
+classes <- model$cluster
+pca_clust <- PCA(cbind(data_acp,class = as.factor(classes)),ncp = 2, quali.sup = ncol(data_acp) + 1, graph = FALSE)
+fviz_pca_ind(pca_clust,
+             col.ind = "cos2",   
+             label = "", 
+             habillage = "class",
+             addEllipses =  TRUE,
+             select.ind = list(cos2=0.5),title="")+
+    theme(legend.position = "none")
+```
+Ce graphique représente la carte des individus de l'ACP, avec un habillage basé sur les classes obtenues plus haut. 
+
+En effectuant une analyse conjointe de ces classes avec les graphiques trouvés lors de l'ACP, nous faisons les constats suivant :
+
+- La **classe du quadrant inférieur gauche** semble associée aux individus jeunes ayant un niveau de stress élevé ainsi qu'une faible qualité de sommeil. Par ailleurs, cette classe est proche des centres de gravité des métiers de docteur,manager,ingénieur en informatique, et vendeur, ce qui pourrait suggérer que les individus de cette classe ont tendance à avoir l'un de ces métiers. 
+- La **classe du quandrant inférieur droit** présente des profils plus modérés. Situés à proximité de l'origine des axes, ces individus semblent avoir des niveaux équilibrés pour la plupart des variables quantitatives. Ils sont également proche du centre de gravité de `None` (correspondant à l'absence de troubel du sommeil) et `Normal` (correspondant à un IMC standard), ce qui conforte cette idée.
+- La **classe à l'extrème droite** est plus éparse le long de la dimension 2, et donc plus difficilement interpretable. Cependant, cette dernière présente une qualité de someille supérieure aux autre classes, ainsi qu'un rythme cardiaque et niveau de stress moins élevé. 
+- La **classe du quandrant supérieur gauche** semble caractérisée par des profils atypiques. Cette dernière est fortement associée aux variables  `DBP` et `SBP`. Cela suggère que les individus de cette classe pourraient présenter un trouble spécifique, tel que  l'hypertension, qui pourrait expliquer leur qualité de sommeille moindre.
+
+
+# Analyse des correspondaces multiples.
+
+Dans cette section, nous explorons plus en profondeur les relations entre le **sommeil** et la **santé**. Pour ce faire, nous avons retenu deux variables catégorielles : `BMI.Category` et `Sleep.Disorder`. Ensuite, nous avons créé une nouvelle variable, `BP_Profile`, qui classe les individus en "hypotension"\footnote{A noter qu'aucun individu ne souffre d'hypotension pour notre échantillon}, "normal" et "hypertension", sur base des valeurs de `DBP` et `SBP`, conformément aux seuils présentés dans l’introduction.
+
+Pour permettre une comparaison avec `Sleep.Duration`, nous avons également discrétisé la variable en trois catégories : "Below 6.5", "6.5 to 7.5", et "Above 7.5", en nous basant sur le baromètre de Santé Publique France (2017)\footnote{Bulletin épidiémologique hebdomadaire, "Le temps de sommeil en France" | Santé publique France}. La catégorie intermédiaire reflète une durée de sommeil proche des 7.14 heures recommandées pour être en forme.
+
+```{r, echo = FALSE, results = 'hide'}
+projet_1$Sleep_Category <- cut(projet_1$Sleep.Duration,
+                                   breaks = c(-Inf, 6.5, 7.5, Inf), 
+                                   labels = c("Below 6.5", "6.5 to 7.5", "Above 7.5"),
+                                   right = TRUE)
+projet_1$BP_Profile <- with(projet_1, 
+                            ifelse(SBP < 90 & DBP < 60, "Hypotension", 
+                            ifelse(SBP > 140 | DBP > 80, "Hypertension", "Normal")))
+
+```
+
+```{r}
+par(mar = c(2, 1, 1, 1)) 
+variable.MCA<-projet_1[,c("BMI.Category","Sleep.Disorder","Sleep_Category","BP_Profile")]
+res.MCA<-MCA(variable.MCA, ncp=5, graph=FALSE)
+```
+
+Les 2 premiers axes factoriels captent près de 55.39% de la variabilité totale du jeu de données, ce qui est relativement correct en sachant que le pourcentage d'intertie expliqué par chaque axe est plus faible avec l'ACM que dans les autres méthodes factorielles. 
+
+```{r, echo = FALSE, results = 'hide',fig.align='center',fig.height=3,fig.width=4}
+#Valeurs propres.
+#round(res.MCA$eig, digits = 3)
+barplot(res.MCA$eig[,"percentage of variance"], ylab = "Pourcentage de variance expliqué")
+```
+
+## Qualité de représentation des individus et variables.
+
+```{r}
+#Cos^2 var
+round(sort(rowSums(res.MCA$var$cos2[,1:2])), digits = 3)
+```
+La modalité `BMI.Category_Normal` est la mieux représentée sur le premier plan factoriel avec un $\cos^2$ de 0.863, tandis que `BMI.Category_Obese` est la moins bien représentée avec un cos2 de 0.039. Les catégories liées au sommeil ainsi que les profils de pression artérielle montrent également une bonne représentation avec des $\cos^2 \ge 0.669$. En revanche, les profils de sommeil, notamment `Below 6.5` et `6.5 to 7.5`, sont moins bien représentés avec des $\cos^2$ respectivement de 0.284 et 0.444, respectivement.
+
+```{r,results='hide'}
+# Calcul des cos^2 cumulés sur les deux premiers axes des variables 
+cos2 <- round(rowSums(res.MCA$ind$cos2[, 1:2]),2)
+
+sum(cos2 > 0.5)/374
+
+```
+
+Si nous regardons maintenant au $\cos^2$ des individus, nous remarquons que 65% des individus sont correctement représentés ($\cos^2 \ge 0.5$).
+
+```{r}
+round(res.MCA$var$contrib[,c(1,2)],digits=3)
+```
+
+## Contributions aux axes factoriels.
+
+Les contributions des différentes modalités aux deux premières dimensions de l'ACM révèlent des patterns intéressants. `BMI.Category_Overweight` (17.575) et `BMI.Category_Normal` (13.819) montrent des contributions notables sur la dimension 1, indiquant qu'elles sont bien séparées selon cette dimension. Les profils de pression artérielle `BP_Profile_Hypertension` (10.399) `BP_Profile_Normal` (15.021) contribuent aussi substantiellement à la dimension 1. D'autre part, `Insomnia` (22.971) et `Sleep Apnea` (28.959) sont fortement représentées sur la dimension 2, suggérant une relation forte avec cette dimension. La catégorie `Above 7.5` (23.655) et `6.5 to 7.5` (23.479) se distinguent également sur la dimension 2, tandis que `Below 6.5` (7.139) présente une contribution moindre pour les 2 dimensions.
+
+## Interprétation.
+
+```{r,fig.align='center',fig.height=4,fig.width=8}
+
+fviz_mca_var(res.MCA,col.var = "cos2",gradient.cols = c("lightblue", "darkblue"),           repel = TRUE, title= "Analyse des Correspondance Multiples" )
+
+```
+
+Le graphique issu de l'ACM montre une association marquée entre l’absence de trouble du sommeil (`None`), une catégorie d'IMC standard (`BMI.Category_Normal`) et une tension dans les normes (`BP_Profile_Normal`). Notons également que ces modalités se trouvent plus porches des modalités `6.5 to 7.5` et `Above 7.5`, suggérant un lien entre un état de santé favorable et des nuits plus longues ou équilibrées. À l’opposé, les modalités `BMI.Category_Overweight`, `BP_Profile_Hypertension` et `Below 6.5` sont également proches, ce qui suggère une association entre le surpoids, l'hypertension et des durées de sommeil "insuffisantes". Par ailleurs, les troubles du sommeil tels que l’apnée (`Sleep Apnea`) et l’insomnie (`Insomnia`) sont également proches de ce groupe de modalités, ce qui suggère à nouveau un lien entre trouble du sommeil et santé.
+
+# Conclusions.
+
+Au cours de cette étude, nous avons exploré de manière approfondie les relations entre le sommeil, la santé et le mode de vie à travers une analyse multidimensionnelle intégrant l'ACP, l'ACM et le clustering. L’ACP a permis d’identifier des structures sous-jacentes dans les données , révélant notamment une relation négative entre le niveau de stress et la durée de sommeil, ainsi qu'une relation positive entre l'âge et la durée de sommeil. Les résultats ont'ACP a également mis en évidence l'opposition en terme de qualité de sommeil entre les individus possédant un IMC faible et un IMC élevé. Ces résultats soulignent le rôle que peuvent avoir des facteurs émotionnels (tel que le stress) et physiques (tel que IMC) sur les mécanismes du sommeil. 
+
+L’ACM a  confirmé ces observations, montrant des associations significatives entre les troubles du sommeil (comme l’apnée et l’insomnie) et des facteurs de risque tels que le surpoids et l’hypertension. À l’opposé, des durées de sommeil optimales (6.5-7.5) sont associées à un IMC normal et une tension artérielle stable, confirmant ainsi l’importance d’un mode de vie sain pour maintenir une bonne qualité de sommeil.
+
+Enfin, le clustering a permis de renforcer l'intuition de l'existence de profils distincts au sein de l'échantillon. Quatre groupes majeurs ont été identifiés. Le premier groupe, avec un niveau de stress élevé, présente des durées de sommeil plus courtes. Le second groupe, caractérisé par l'absence de troubles du sommeil et un IMC normal, affiche des durées de sommeil plus longues. Un troisième groupe, plus âgé, souffre d'hypertension et présente une qualité de sommeil moindre. Ces résultats renforcent l'idée de profils variés, influencés par des facteurs de santé et de mode de vie spécifiques.
+
+En conclusion, cette analyse multidimensionnelle a permis de démontrer que le sommeil et la santé sont étroitement liés. Les résultats soulignent l’importance d’une approche intégrée du sommeil, prenant en compte non seulement les facteurs physiques mais aussi émotionnels, afin de promouvoir un sommeil de qualité et, par conséquent, une meilleure santé globale.
+
+\clearpage
+
+# Annexes
+
+## Annexe 1 : statistiques descriptives
+
+```{r}
+data.frame(
+  Min = round(sapply(projet_1[1:9], min, na.rm = TRUE), 2),
+  Max = round(sapply(projet_1[1:9], max, na.rm = TRUE), 2),
+  Moyenne = round(sapply(projet_1[1:9], mean, na.rm = TRUE), 2),
+  `Écart-Type` = round(sapply(projet_1[1:9], sd, na.rm = TRUE), 2)
+)
+```
+
+
+## Annexe 2 : analyse des valeurs propres
+
+```{r}
+data_acp <- projet_1[1:9] #sélectionner seulement les variables quantitatives
+res <-  PCA(data_acp,graph = FALSE,ncp=9)
+round(res$eig, 1)
+```
+
+```{r,fig.align='center',fig.height=4,fig.width=5}
+par(mar = c(5, 4, 4, 5))
+barplot(res$eig[, "eigenvalue"],
+        xlab = expression(alpha), ylab = expression(lambda[alpha]))
+
+#ajouter le seuil de sélection#
+abline(h = 1, lty = "dashed") 
+#ajouter le % de variance cumulé
+par(new = TRUE)
+plot(1:9, res$eig[,"cumulative percentage of variance"], type = "b",xlab="",ylab="",xaxt="n",yaxt="n", col = "red", pch = 16)
+axis(side = 4)  # Ajouter l'axe y à droite
+mtext("% de variance cumulé", side = 4,line=3)
+```
+
+

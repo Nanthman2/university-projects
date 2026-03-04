@@ -1,0 +1,375 @@
+Person ID;Age;Sleep Duration;Quality of Sleep;Physical Activity Level;Stress Level;SBP;DBP;Heart Rate;Daily Steps;Gender;Occupation;BMI Category;Sleep Disorder
+Sub_1;27;6.1;6;42;6;126;83;77;4200;Male;Software Engineer;Overweight;None
+Sub_2;28;6.2;6;60;8;125;80;75;10000;Male;Doctor;Normal;None
+Sub_3;28;6.2;6;60;8;125;80;75;10000;Male;Doctor;Normal;None
+Sub_4;28;5.9;4;30;8;140;90;85;3000;Male;Sales Representative;Obese;Sleep Apnea
+Sub_5;28;5.9;4;30;8;140;90;85;3000;Male;Sales Representative;Obese;Sleep Apnea
+Sub_6;28;5.9;4;30;8;140;90;85;3000;Male;Software Engineer;Obese;Insomnia
+Sub_7;29;6.3;6;40;7;140;90;82;3500;Male;Teacher;Obese;Insomnia
+Sub_8;29;7.8;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_9;29;7.8;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_10;29;7.8;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_11;29;6.1;6;30;8;120;80;70;8000;Male;Doctor;Normal;None
+Sub_12;29;7.8;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_13;29;6.1;6;30;8;120;80;70;8000;Male;Doctor;Normal;None
+Sub_14;29;6;6;30;8;120;80;70;8000;Male;Doctor;Normal;None
+Sub_15;29;6;6;30;8;120;80;70;8000;Male;Doctor;Normal;None
+Sub_16;29;6;6;30;8;120;80;70;8000;Male;Doctor;Normal;None
+Sub_17;29;6.5;5;40;7;132;87;80;4000;Female;Nurse;Normal;Sleep Apnea
+Sub_18;29;6;6;30;8;120;80;70;8000;Male;Doctor;Normal;Sleep Apnea
+Sub_19;29;6.5;5;40;7;132;87;80;4000;Female;Nurse;Normal;Insomnia
+Sub_20;30;7.6;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_21;30;7.7;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_22;30;7.7;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_23;30;7.7;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_24;30;7.7;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_25;30;7.8;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_26;30;7.9;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_27;30;7.8;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_28;30;7.9;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_29;30;7.9;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_30;30;7.9;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_31;30;6.4;5;35;7;130;86;78;4100;Female;Nurse;Normal;Sleep Apnea
+Sub_32;30;6.4;5;35;7;130;86;78;4100;Female;Nurse;Normal;Insomnia
+Sub_33;31;7.9;8;75;4;117;76;69;6800;Female;Nurse;Normal;None
+Sub_34;31;6.1;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_35;31;7.7;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_36;31;6.1;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_37;31;6.1;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_38;31;7.6;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_39;31;7.6;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_40;31;7.6;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_41;31;7.7;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_42;31;7.7;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_43;31;7.7;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_44;31;7.8;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_45;31;7.7;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_46;31;7.8;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_47;31;7.7;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_48;31;7.8;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_49;31;7.7;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_50;31;7.7;7;75;6;120;80;70;8000;Male;Doctor;Normal;Sleep Apnea
+Sub_51;32;7.5;8;45;3;120;80;70;8000;Male;Engineer;Normal;None
+Sub_52;32;7.5;8;45;3;120;80;70;8000;Male;Engineer;Normal;None
+Sub_53;32;6;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_54;32;7.6;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_55;32;6;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_56;32;6;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_57;32;7.7;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_58;32;6;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_59;32;6;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_60;32;7.7;7;75;6;120;80;70;8000;Male;Doctor;Normal;None
+Sub_61;32;6;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_62;32;6;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_63;32;6.2;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_64;32;6.2;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_65;32;6.2;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_66;32;6.2;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_67;32;7.2;8;50;6;118;76;68;7000;Male;Accountant;Normal;None
+Sub_68;33;6;6;30;8;125;80;72;5000;Male;Doctor;Normal;Insomnia
+Sub_69;33;6.2;6;50;6;128;85;76;5500;Female;Scientist;Overweight;None
+Sub_70;33;6.2;6;50;6;128;85;76;5500;Female;Scientist;Overweight;None
+Sub_71;33;6.1;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_72;33;6.1;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_73;33;6.1;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_74;33;6.1;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_75;33;6;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_76;33;6;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_77;33;6;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_78;33;6;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_79;33;6;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_80;33;6;6;30;8;125;80;72;5000;Male;Doctor;Normal;None
+Sub_81;34;5.8;4;32;8;131;86;81;5200;Female;Scientist;Overweight;Sleep Apnea
+Sub_82;34;5.8;4;32;8;131;86;81;5200;Female;Scientist;Overweight;Sleep Apnea
+Sub_83;35;6.7;7;40;5;128;84;70;5600;Male;Teacher;Overweight;None
+Sub_84;35;6.7;7;40;5;128;84;70;5600;Male;Teacher;Overweight;None
+Sub_85;35;7.5;8;60;5;120;80;70;8000;Male;Software Engineer;Normal;None
+Sub_86;35;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_87;35;7.2;8;60;4;125;80;65;5000;Male;Engineer;Normal;None
+Sub_88;35;7.2;8;60;4;125;80;65;5000;Male;Engineer;Normal;None
+Sub_89;35;7.3;8;60;4;125;80;65;5000;Male;Engineer;Normal;None
+Sub_90;35;7.3;8;60;4;125;80;65;5000;Male;Engineer;Normal;None
+Sub_91;35;7.3;8;60;4;125;80;65;5000;Male;Engineer;Normal;None
+Sub_92;35;7.3;8;60;4;125;80;65;5000;Male;Engineer;Normal;None
+Sub_93;35;7.5;8;60;5;120;80;70;8000;Male;Software Engineer;Normal;None
+Sub_94;35;7.4;7;60;5;135;88;84;3300;Male;Lawyer;Obese;Sleep Apnea
+Sub_95;36;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;Insomnia
+Sub_96;36;7.1;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_97;36;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_98;36;7.1;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_99;36;7.1;8;60;4;115;75;68;7000;Female;Teacher;Normal;None
+Sub_100;36;7.1;8;60;4;115;75;68;7000;Female;Teacher;Normal;None
+Sub_101;36;7.2;8;60;4;115;75;68;7000;Female;Teacher;Normal;None
+Sub_102;36;7.2;8;60;4;115;75;68;7000;Female;Teacher;Normal;None
+Sub_103;36;7.2;8;60;4;115;75;68;7000;Female;Teacher;Normal;None
+Sub_104;36;6.6;5;35;7;129;84;74;4800;Male;Teacher;Overweight;Sleep Apnea
+Sub_105;36;7.2;8;60;4;115;75;68;7000;Female;Teacher;Normal;Sleep Apnea
+Sub_106;36;6.6;5;35;7;129;84;74;4800;Male;Teacher;Overweight;Insomnia
+Sub_107;37;6.1;6;42;6;126;83;77;4200;Female;Nurse;Overweight;None
+Sub_108;37;7.8;8;70;4;120;80;68;7000;Male;Engineer;Normal;None
+Sub_109;37;7.8;8;70;4;120;80;68;7000;Male;Engineer;Normal;None
+Sub_110;37;7.4;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_111;37;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_112;37;7.4;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_113;37;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_114;37;7.4;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_115;37;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_116;37;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_117;37;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_118;37;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_119;37;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_120;37;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_121;37;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_122;37;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_123;37;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_124;37;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_125;37;7.2;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_126;37;7.5;8;60;4;120;80;70;8000;Female;Nurse;Normal;None
+Sub_127;38;7.3;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_128;38;7.1;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_129;38;7.3;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_130;38;7.3;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_131;38;7.1;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_132;38;7.3;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_133;38;7.3;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_134;38;7.1;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_135;38;7.3;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_136;38;7.3;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_137;38;7.1;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_138;38;7.1;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_139;38;7.1;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_140;38;7.1;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_141;38;7.1;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_142;38;7.1;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_143;38;7.1;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_144;38;7.1;8;60;4;115;75;68;7000;Female;Accountant;Normal;None
+Sub_145;38;7.1;8;60;5;130;85;68;8000;Male;Lawyer;Normal;Sleep Apnea
+Sub_146;38;7.4;7;60;5;135;88;84;3300;Female;Lawyer;Obese;Sleep Apnea
+Sub_147;39;7.2;8;60;5;130;85;68;8000;Male;Lawyer;Normal;Insomnia
+Sub_148;39;6.5;5;40;7;132;87;80;4000;Male;Engineer;Overweight;Insomnia
+Sub_149;39;6.9;7;50;6;128;85;75;5500;Female;Lawyer;Normal;None
+Sub_150;39;8;9;80;3;115;78;67;7500;Female;Accountant;Normal;None
+Sub_151;39;8;9;80;3;115;78;67;7500;Female;Accountant;Normal;None
+Sub_152;39;7.2;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_153;39;7.2;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_154;39;7.2;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_155;39;7.2;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_156;39;7.2;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_157;39;7.2;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_158;39;7.2;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_159;39;7.2;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_160;39;7.2;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_161;39;7.2;8;60;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_162;40;7.2;8;55;6;119;77;73;7300;Female;Accountant;Normal;None
+Sub_163;40;7.2;8;55;6;119;77;73;7300;Female;Accountant;Normal;None
+Sub_164;40;7.9;8;90;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_165;40;7.9;8;90;5;130;85;68;8000;Male;Lawyer;Normal;None
+Sub_166;41;7.6;8;90;5;130;85;70;8000;Male;Lawyer;Normal;Insomnia
+Sub_167;41;7.3;8;70;6;121;79;72;6200;Male;Engineer;Normal;None
+Sub_168;41;7.1;7;55;6;125;82;72;6000;Male;Lawyer;Overweight;None
+Sub_169;41;7.1;7;55;6;125;82;72;6000;Male;Lawyer;Overweight;None
+Sub_170;41;7.7;8;90;5;130;85;70;8000;Male;Lawyer;Normal;None
+Sub_171;41;7.7;8;90;5;130;85;70;8000;Male;Lawyer;Normal;None
+Sub_172;41;7.7;8;90;5;130;85;70;8000;Male;Lawyer;Normal;None
+Sub_173;41;7.7;8;90;5;130;85;70;8000;Male;Lawyer;Normal;None
+Sub_174;41;7.7;8;90;5;130;85;70;8000;Male;Lawyer;Normal;None
+Sub_175;41;7.6;8;90;5;130;85;70;8000;Male;Lawyer;Normal;None
+Sub_176;41;7.6;8;90;5;130;85;70;8000;Male;Lawyer;Normal;None
+Sub_177;41;7.6;8;90;5;130;85;70;8000;Male;Lawyer;Normal;None
+Sub_178;42;6.5;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_179;42;7.8;8;90;5;130;85;70;8000;Male;Lawyer;Normal;None
+Sub_180;42;7.8;8;90;5;130;85;70;8000;Male;Lawyer;Normal;None
+Sub_181;42;7.8;8;90;5;130;85;70;8000;Male;Lawyer;Normal;None
+Sub_182;42;7.8;8;90;5;130;85;70;8000;Male;Lawyer;Normal;None
+Sub_183;42;7.8;8;90;5;130;85;70;8000;Male;Lawyer;Normal;None
+Sub_184;42;7.8;8;90;5;130;85;70;8000;Male;Lawyer;Normal;None
+Sub_185;42;6.8;6;45;7;130;85;78;5000;Female;Teacher;Overweight;Sleep Apnea
+Sub_186;42;6.8;6;45;7;130;85;78;5000;Female;Teacher;Overweight;Sleep Apnea
+Sub_187;43;6.7;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_188;43;6.3;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_189;43;6.7;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_190;43;6.5;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_191;43;6.7;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_192;43;6.4;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_193;43;6.5;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_194;43;6.5;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_195;43;6.5;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_196;43;6.5;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_197;43;6.5;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_198;43;6.5;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_199;43;6.5;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_200;43;6.5;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_201;43;6.5;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_202;43;7.8;8;90;5;130;85;70;8000;Male;Engineer;Normal;Insomnia
+Sub_203;43;7.8;8;90;5;130;85;70;8000;Male;Engineer;Normal;Insomnia
+Sub_204;43;6.9;6;47;7;117;76;69;6800;Male;Engineer;Normal;None
+Sub_205;43;7.6;8;75;4;122;80;68;6800;Male;Engineer;Overweight;None
+Sub_206;43;7.7;8;90;5;130;85;70;8000;Male;Engineer;Normal;None
+Sub_207;43;7.7;8;90;5;130;85;70;8000;Male;Engineer;Normal;None
+Sub_208;43;7.7;8;90;5;130;85;70;8000;Male;Engineer;Normal;None
+Sub_209;43;7.7;8;90;5;130;85;70;8000;Male;Engineer;Normal;None
+Sub_210;43;7.8;8;90;5;130;85;70;8000;Male;Engineer;Normal;None
+Sub_211;43;7.7;8;90;5;130;85;70;8000;Male;Engineer;Normal;None
+Sub_212;43;7.8;8;90;5;130;85;70;8000;Male;Engineer;Normal;None
+Sub_213;43;7.8;8;90;5;130;85;70;8000;Male;Engineer;Normal;None
+Sub_214;43;7.8;8;90;5;130;85;70;8000;Male;Engineer;Normal;None
+Sub_215;43;7.8;8;90;5;130;85;70;8000;Male;Engineer;Normal;None
+Sub_216;43;7.8;8;90;5;130;85;70;8000;Male;Engineer;Normal;None
+Sub_217;43;7.8;8;90;5;130;85;70;8000;Male;Engineer;Normal;None
+Sub_218;43;7.8;8;90;5;130;85;70;8000;Male;Engineer;Normal;None
+Sub_219;43;7.8;8;90;5;130;85;70;8000;Male;Engineer;Normal;Sleep Apnea
+Sub_220;43;6.5;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Sleep Apnea
+Sub_221;44;6.6;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_222;44;6.4;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_223;44;6.3;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_224;44;6.4;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_225;44;6.6;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_226;44;6.3;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_227;44;6.6;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_228;44;6.3;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_229;44;6.6;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_230;44;6.3;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_231;44;6.6;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_232;44;6.3;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_233;44;6.6;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_234;44;6.3;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_235;44;6.6;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_236;44;6.3;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_237;44;6.4;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_238;44;6.5;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_239;44;6.3;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_240;44;6.4;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_241;44;6.5;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_242;44;6.3;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_243;44;6.4;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_244;44;6.5;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_245;44;6.3;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_246;44;6.5;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_247;44;6.3;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;Insomnia
+Sub_248;44;6.8;7;45;7;130;85;78;5000;Male;Engineer;Overweight;Insomnia
+Sub_249;44;6.4;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;None
+Sub_250;44;6.5;6;45;7;130;85;72;6000;Male;Salesperson;Overweight;None
+Sub_251;45;6.8;7;30;6;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_252;45;6.8;7;30;6;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_253;45;6.5;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_254;45;6.5;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_255;45;6.5;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_256;45;6.5;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_257;45;6.6;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_258;45;6.6;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_259;45;6.6;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_260;45;6.6;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_261;45;6.6;7;45;4;135;90;65;6000;Female;Teacher;Overweight;Insomnia
+Sub_262;45;6.6;7;45;4;135;90;65;6000;Female;Teacher;Overweight;None
+Sub_263;45;6.6;7;45;4;135;90;65;6000;Female;Teacher;Overweight;None
+Sub_264;45;6.9;7;55;5;125;82;75;5500;Female;Manager;Overweight;None
+Sub_265;48;7.3;7;65;5;142;92;83;3500;Male;Doctor;Obese;Insomnia
+Sub_266;48;5.9;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_267;48;7.3;7;65;5;142;92;83;3500;Male;Doctor;Obese;Insomnia
+Sub_268;49;6.2;6;90;8;140;95;75;10000;Female;Nurse;Overweight;None
+Sub_269;49;6;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_270;49;6.1;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_271;49;6.1;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_272;49;6.1;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_273;49;6.1;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_274;49;6.2;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_275;49;6.2;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_276;49;6.2;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_277;49;8.1;9;85;3;139;91;86;3700;Male;Doctor;Obese;Sleep Apnea
+Sub_278;49;8.1;9;85;3;139;91;86;3700;Male;Doctor;Obese;Sleep Apnea
+Sub_279;50;6.1;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Insomnia
+Sub_280;50;8.3;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_281;50;6;6;90;8;140;95;75;10000;Female;Nurse;Overweight;None
+Sub_282;50;6.1;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_283;50;6;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_284;50;6;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_285;50;6;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_286;50;6;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_287;50;6;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_288;50;6;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_289;50;6;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_290;50;6.1;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_291;50;6;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_292;50;6.1;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_293;50;6.1;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_294;50;6;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_295;50;6.1;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_296;50;6;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_297;50;6.1;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_298;50;6.1;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_299;51;8.5;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_300;51;8.5;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_301;51;8.5;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_302;51;8.5;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_303;51;7.1;7;55;6;125;82;72;6000;Female;Nurse;Normal;None
+Sub_304;51;6;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_305;51;6.1;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_306;51;6.1;6;90;8;140;95;75;10000;Female;Nurse;Overweight;Sleep Apnea
+Sub_307;52;6.5;7;45;7;130;85;72;6000;Female;Accountant;Overweight;Insomnia
+Sub_308;52;6.5;7;45;7;130;85;72;6000;Female;Accountant;Overweight;Insomnia
+Sub_309;52;6.6;7;45;7;130;85;72;6000;Female;Accountant;Overweight;Insomnia
+Sub_310;52;6.6;7;45;7;130;85;72;6000;Female;Accountant;Overweight;Insomnia
+Sub_311;52;6.6;7;45;7;130;85;72;6000;Female;Accountant;Overweight;Insomnia
+Sub_312;52;6.6;7;45;7;130;85;72;6000;Female;Accountant;Overweight;Insomnia
+Sub_313;52;8.4;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_314;52;8.4;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_315;52;8.4;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_316;53;8.3;9;30;3;125;80;65;5000;Female;Engineer;Normal;Insomnia
+Sub_317;53;8.5;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_318;53;8.5;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_319;53;8.4;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_320;53;8.4;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_321;53;8.5;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_322;53;8.4;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_323;53;8.4;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_324;53;8.5;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_325;53;8.3;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_326;53;8.5;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_327;53;8.3;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_328;53;8.5;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_329;53;8.3;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_330;53;8.5;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_331;53;8.5;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_332;53;8.4;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_333;54;8.4;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_334;54;8.4;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_335;54;8.4;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_336;54;8.4;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_337;54;8.4;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_338;54;8.4;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_339;54;8.5;9;30;3;125;80;65;5000;Female;Engineer;Normal;None
+Sub_340;55;8.1;9;75;4;140;95;72;5000;Female;Nurse;Overweight;Sleep Apnea
+Sub_341;55;8.1;9;75;4;140;95;72;5000;Female;Nurse;Overweight;Sleep Apnea
+Sub_342;56;8.2;9;90;3;118;75;65;10000;Female;Doctor;Normal;None
+Sub_343;56;8.2;9;90;3;118;75;65;10000;Female;Doctor;Normal;None
+Sub_344;57;8.1;9;75;3;140;95;68;7000;Female;Nurse;Overweight;None
+Sub_345;57;8.2;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_346;57;8.2;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_347;57;8.2;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_348;57;8.2;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_349;57;8.2;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_350;57;8.1;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_351;57;8.1;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_352;57;8.1;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_353;58;8;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_354;58;8;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_355;58;8;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_356;58;8;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_357;58;8;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_358;58;8;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_359;59;8;9;75;3;140;95;68;7000;Female;Nurse;Overweight;None
+Sub_360;59;8.1;9;75;3;140;95;68;7000;Female;Nurse;Overweight;None
+Sub_361;59;8.2;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_362;59;8.2;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_363;59;8.2;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_364;59;8.2;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_365;59;8;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_366;59;8;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_367;59;8.1;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_368;59;8;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_369;59;8.1;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_370;59;8.1;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_371;59;8;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_372;59;8.1;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_373;59;8.1;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
+Sub_374;59;8.1;9;75;3;140;95;68;7000;Female;Nurse;Overweight;Sleep Apnea
